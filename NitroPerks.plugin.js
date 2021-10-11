@@ -86,7 +86,6 @@ module.exports = (() => {
             } = Api;
             return class NitroPerks extends Plugin {
                 defaultSettings = {
-                    "emojiSize": "40",
                     "screenSharing": false,
                     "emojiBypass": true,
                     "clientsidePfp": false,
@@ -101,10 +100,7 @@ module.exports = (() => {
                         new Settings.SettingGroup("Features").append(...[
                             new Settings.Switch("High Quality Screensharing", "Enable or disable 1080p/source @ 60fps screensharing. This adapts to your current nitro status.", this.settings.screenSharing, value => this.settings.screenSharing = value)
                         ]),
-                        new Settings.SettingGroup("Emojis").append(
-                            new Settings.Switch("Nitro Emotes Bypass", "Enable or disable using the Nitro Emote bypass.", this.settings.emojiBypass, value => this.settings.emojiBypass = value),
-                            new Settings.Slider("Size", "The size of the emoji in pixels. 40 is recommended.", 16, 64, this.settings.emojiSize, size=>this.settings.emojiSize = size, {markers:[16,20,32,40,64], stickToMarkers:true})
-                        ),
+                        
                             new Settings.SettingGroup("Profile Picture").append(...[
                                 new Settings.Switch("Clientsided Profile Picture", "Enable or disable clientsided profile pictures.", this.settings.clientsidePfp, value => this.settings.clientsidePfp = value),
                                 new Settings.Textbox("URL", "The direct URL that has the profile picture you want.", this.settings.pfpUrl,
